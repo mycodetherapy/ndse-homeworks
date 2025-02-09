@@ -1,0 +1,74 @@
+﻿**********************
+Начало записи сценария Windows PowerShell
+Время начала: 20250209130239
+Имя пользователя: mao\max
+Запуск от имени пользователя: mao\max
+Имя конфигурации: 
+Компьютер: MAO (Microsoft Windows NT 10.0.22631.0)
+Ведущее приложение: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe
+ИД процесса: 2780
+PSVersion: 5.1.22621.4391
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.4391
+BuildVersion: 10.0.22621.4391
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Транскрибирование запущено, выходной файл docker_log3.txt
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker pull node
+Using default tag: latest
+Error response from daemon: Get "https://registry-1.docker.io/v2/library/node/manifests/sha256:0bcc32c2d59aa8bf416a43be9
+672a59fa1b9f0f0fbdb6fe069d67e7be2f98e9e": net/http: TLS handshake timeout
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker pull node:latest
+latest: Pulling from library/node
+a492eee5e559: Pull complete
+32b550be6cb6: Pull complete
+35af2a7690f2: Pull complete
+7576b00d9bb1: Pull complete
+35001977cb7f: Pull complete
+82c2ed0ff8ef: Pull complete
+09f72cde7f50: Pull complete
+c5461c1b1ea7: Pull complete
+Digest: sha256:0bcc32c2d59aa8bf416a43be9672a59fa1b9f0f0fbdb6fe069d67e7be2f98e9e
+Status: Downloaded newer image for node:latest
+docker.io/library/node:latest
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -d --name first_node -v ${PWD}/data:/var/first/data node
+8b21681fad0f27544de6681ec622e4b2a51dde185d78ce44a24963d93600160a
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -d --name second_node -v ${PWD}/data:/var/second/data node
+fffedf6475263edf79507e420331d75eced2df90ec5664ca8af7c688bc48065a
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+fffedf647526   node      "docker-entrypoint.s…"   9 seconds ago    Exited (0) 8 seconds ago              second_node
+8b21681fad0f   node      "docker-entrypoint.s…"   32 seconds ago   Exited (0) 31 seconds ago             first_node
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker exec first_node sh -c "echo 'Hello from first_node' > /var/first/data/file1.txt"
+Error response from daemon: container 8b21681fad0f27544de6681ec622e4b2a51dde185d78ce44a24963d93600160a is not running
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -d --name first_node -v ${PWD}/data:/var/first/data node tail -f /dev/null
+docker: Error response from daemon: Conflict. The container name "/first_node" is already in use by container "8b21681fad0f27544de6681ec622e4b2a51dde185d78c
+e44a24963d93600160a". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker stop first_node second_node
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker rm first_node second_node
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -d --name first_node -v ${PWD}/data:/var/first/data node tail -f /dev/null
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -d --name second_node -v ${PWD}/data:/var/second/data node tail -f /dev/null
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker exec first_node sh -c "echo 'Hello from first_node' > /var/first/data/file1.txt"
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> echo "This is a file from the host" > ${PWD}/data/file2.txt
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> ParameterBinding(Out-File): имя="InputObject"; значение="This is a file from the host"
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker exec second_node ls /var/second/data
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker exec second_node cat /var/second/data/file1.txt
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker exec second_node cat /var/second/data/file2.txt
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker stop first_node second_node
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker rm first_node second_node
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker rmi node
+

@@ -1,0 +1,134 @@
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker pull busybox[27m[?5h[?5l
+[C[Cdocker pull busybox
+[?2004l
+Using default tag: latest
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pulling fs layer
+9c0abc9c5bd3: Download complete
+9c0abc9c5bd3: Pull complete
+Digest: sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ 
+[K
+$ 
+[K
+$ 
+[K
+$ [7mdocker run --name pinger busybox ping -c 7 netology.ru[27m[?5h[?5l
+[C[Cdocker run --name pinger busybox ping -c 7 netology.ru
+[?2004l
+PING netology.ru (51.250.51.8): 56 data bytes
+64 bytes from 51.250.51.8: seq=0 ttl=63 time=1.068 ms
+64 bytes from 51.250.51.8: seq=1 ttl=63 time=5.581 ms
+64 bytes from 51.250.51.8: seq=2 ttl=63 time=3.966 ms
+64 bytes from 51.250.51.8: seq=3 ttl=63 time=5.379 ms
+64 bytes from 51.250.51.8: seq=4 ttl=63 time=5.506 ms
+64 bytes from 51.250.51.8: seq=5 ttl=63 time=1.826 ms
+64 bytes from 51.250.51.8: seq=6 ttl=63 time=5.279 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 1.068/4.086/5.581 ms
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker ps -a[27m[?5h[?5l
+[C[Cdocker ps -a
+[?2004l
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+a7ad8a6c549a   busybox   "ping -c 7 netology.…"   34 seconds ago   Exited (0) 26 seconds ago             pinger
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker logs pinger[27m[?5h[?5l
+[C[Cdocker logs pinger
+[?2004l
+PING netology.ru (51.250.51.8): 56 data bytes
+64 bytes from 51.250.51.8: seq=0 ttl=63 time=1.068 ms
+64 bytes from 51.250.51.8: seq=1 ttl=63 time=5.581 ms
+64 bytes from 51.250.51.8: seq=2 ttl=63 time=3.966 ms
+64 bytes from 51.250.51.8: seq=3 ttl=63 time=5.379 ms
+64 bytes from 51.250.51.8: seq=4 ttl=63 time=5.506 ms
+64 bytes from 51.250.51.8: seq=5 ttl=63 time=1.826 ms
+64 bytes from 51.250.51.8: seq=6 ttl=63 time=5.279 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 1.068/4.086/5.581 ms
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker start pinger[27m[?5h[?5l
+[C[Cdocker start pinger
+[?2004l
+pinger
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker ps -a[27m[?5h[?5l
+[C[Cdocker ps -a
+[?2004l
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
+a7ad8a6c549a   busybox   "ping -c 7 netology.…"   About a minute ago   Exited (0) 14 seconds ago             pinger
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker logs pinger[27m[?5h[?5l
+[C[Cdocker logs pinger
+[?2004l
+PING netology.ru (51.250.51.8): 56 data bytes
+64 bytes from 51.250.51.8: seq=0 ttl=63 time=1.068 ms
+64 bytes from 51.250.51.8: seq=1 ttl=63 time=5.581 ms
+64 bytes from 51.250.51.8: seq=2 ttl=63 time=3.966 ms
+64 bytes from 51.250.51.8: seq=3 ttl=63 time=5.379 ms
+64 bytes from 51.250.51.8: seq=4 ttl=63 time=5.506 ms
+64 bytes from 51.250.51.8: seq=5 ttl=63 time=1.826 ms
+64 bytes from 51.250.51.8: seq=6 ttl=63 time=5.279 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 1.068/4.086/5.581 ms
+PING netology.ru (51.250.51.8): 56 data bytes
+64 bytes from 51.250.51.8: seq=0 ttl=63 time=1.104 ms
+64 bytes from 51.250.51.8: seq=1 ttl=63 time=5.290 ms
+64 bytes from 51.250.51.8: seq=2 ttl=63 time=5.587 ms
+64 bytes from 51.250.51.8: seq=3 ttl=63 time=5.605 ms
+64 bytes from 51.250.51.8: seq=4 ttl=63 time=5.335 ms
+64 bytes from 51.250.51.8: seq=5 ttl=63 time=0.916 ms
+64 bytes from 51.250.51.8: seq=6 ttl=63 time=5.362 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 0.916/4.171/5.605 ms
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker logs pinger | grep -c 'bytes from'[27m[?5h[?5l
+[C[Cdocker logs pinger | grep -c 'bytes from'
+[?2004l
+14
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mecho "Общее количество отправленных пингов: $(docker logs pinger | grep -c 'bytes from')"[27m[?5h[?5l
+[C[Cecho "Общее количество отправленных пингов: $(docker logs pinger | grep -c 'bytes from')"
+[?2004l
+Общее количество отправленных пингов: 14
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker rm pinger[27m[?5h[?5l
+[C[Cdocker rm pinger
+[?2004l
+pinger
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m
+$ [7mdocker rmi busybox[27m[?5h[?5l
+[C[C[Cdocker rmi busybox
+[?2004l
+$ [7mdocker rmi busybox[27m[?5h[?5l
+[C[Cdocker rmi busybox
+[?2004l
+Untagged: busybox:latest
+Untagged: busybox@sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Deleted: sha256:af47096251092caf59498806ab8d58e8173ecf5a182f024ce9d635b5b4a55d66
+Deleted: sha256:59654b79daad74c77dc2e28502ca577ba8ce73276720002234a23fc60ee92692
+[?2004h]0;MINGW64:/d/PROJECTS 
+[32mmax@mao [35mMINGW64 [33m/d/PROJECTS[36m[0m

@@ -1,0 +1,45 @@
+﻿**********************
+Начало записи сценария Windows PowerShell
+Время начала: 20250209123714
+Имя пользователя: mao\max
+Запуск от имени пользователя: mao\max
+Имя конфигурации: 
+Компьютер: MAO (Microsoft Windows NT 10.0.22631.0)
+Ведущее приложение: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe
+ИД процесса: 14620
+PSVersion: 5.1.22621.4391
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.4391
+BuildVersion: 10.0.22621.4391
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Транскрибирование запущено, выходной файл docker_log2.txt
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker pull node:latest
+latest: Pulling from library/node
+a492eee5e559: Pull complete
+32b550be6cb6: Pull complete
+35af2a7690f2: Pull complete
+7576b00d9bb1: Pull complete
+35001977cb7f: Pull complete
+82c2ed0ff8ef: Pull complete
+09f72cde7f50: Pull complete
+c5461c1b1ea7: Pull complete
+Digest: sha256:0bcc32c2d59aa8bf416a43be9672a59fa1b9f0f0fbdb6fe069d67e7be2f98e9e
+Status: Downloaded newer image for node:latest
+docker.io/library/node:latest
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker run -it --name mynode -e NAME="Максим" -e SURNAME="Овчинников" node:latest
+Type ".help" for more information.
+> console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`);
+Привет, Максим Овчинников!
+undefined
+>
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker stop mynode
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker rm mynode
+
+PS D:\PROJECTS\netology\ndse-homeworks\009-docker> docker rmi node:latest
+
+
